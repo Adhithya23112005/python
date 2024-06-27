@@ -1,0 +1,52 @@
+From reportlab.lib.pagesizes import A4  
+From reportlab.lib import colors  
+From reportlab.lib.units import inch  
+From reportlab.pdfgen import canvas  
+  
+Def create_address_pdf(filename):  
+    C = canvas.Canvas(filename, pagesize=A4)  
+    Width, height = A4  
+    Margin = inch  
+    # Title  
+    c.setFont(“Helvetica-Bold”, 16)  
+    c.drawString(margin, height – margin, “Address Creator”)  
+    # Address Format  
+    c.setFont(“Helvetica”, 12)     address_lines = [  
+        (“Name:”, “John Doe”),  
+        (“Street:”, “1234 Street”),  
+        (“City:”, “Coimbatore”),  
+        (“District:”, “Coimbatore District”),  
+        (“State:”, “Tamil Nadu”),  
+        (“PIN Code:”, “641001”),  
+        (“Country:”, “India”),  
+        (“Phone:”, “+91 7538807230”),  
+        (“Email:”, john.doe@example.com),  
+    ]  
+    Y = height – 2 * margin     For label, text in address_lines:  
+        c.drawString(margin, y, f”{label} {text}”)         y -= 14  
+      
+    # Custom Address Creation  
+    c.setFont(“Helvetica-Bold”, 14)  
+    c.drawString(margin, y – 20, “Create a Custom Address”)  
+      
+    c.setFont(“Helvetica”, 12)     custom_lines = [         
+“Name:”,  
+        “Street:”,  
+        “City:”,  
+        “District:”,  
+        “State:”,  
+        “PIN Code:”,  
+        “Country:”,  
+        “Phone:”,  
+        “Email:”,  
+    ]  
+      
+    Y -= 40  
+    For label in custom_lines:  
+        c.drawString(margin, y, label)  
+        c.line(margin + 60, y, margin + 320, y)  # Create a line for user to fill in         y -= 18  
+    c.showPage()  
+    c.save()  
+  
+
+Create_address_pdf(“address_creator.pdf”)
